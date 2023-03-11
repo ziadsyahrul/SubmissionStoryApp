@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Story App</string>
+    <string name="hint_username">Username</string>
+    <string name="username_warning">Username harus lebih dari 2 karakter!</string>
+    <string name="email_warning">Pastikan email yang dimasukkan benar!</string>
+    <string name="hint_email">Email</string>
+    <string name="password">Password</string>
+    <string name="password_warning">Harap masukkan password dengan benar</string>
+    <string name="login">Login</string>
+    <string name="register_here">Register disini!</string>
+    <string name="photo">photo</string>
+    <string name="logout">Logout</string>
+    <string name="name">Zaky Raihan</string>
+    <string name="desc">Desc</string>
+    <string name="login_here">Login Disini!</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="description">Description</string>
+    <string name="upload">Upload</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="maps">Maps</string>
+    <string name="message">Message</string>
+    <string name="retry">Coba Lagi</string>
+    <string name="not_found">Tidak ada data saat ini</string>
+    <string name="no_internet">Kamu sedang tidak terhubung dengan internet</string>
+    <string name="register">Register</string>
+</resources>

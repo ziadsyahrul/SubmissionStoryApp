@@ -1,0 +1,75 @@
+SKENARIO TEST VIEWMODEL
+- MainViewModel
+    Ketika Succes dan ada data
+    * Menyimpan token
+    * Memastikan getStory terpanggil
+    * Memastikan data pada story tidak null/kosong
+    * Memastikan kesamaan data dummy dan data asli
+
+    Ketika success dan data kosong
+    * Menyimpan token
+    * Memastikan getStory terpanggil
+    * Memastikan list data paging size 0
+
+-UploadViewModel
+    SUCCESS ->
+    * Memastikan data tidak null/kosong
+    * Memastikan sukses ketika mengupload file
+    * Memastikan kesamaan response antara data dummy dan data yang asli
+    * Memastikan method uploadStory berhasil terpanggil dengan benar
+    ERROR ->
+    * Memastikan gagal dalam mengupload file
+    * Memastikan data dummy tidak sama dengan response asli
+
+- AuthViewModel
+    SUCCESS ->
+    * Memastikan login&register success ketika aksi dilakukan
+    * Memastikan method login&register terpanggil dengan benar
+    * Memastikan data tidak null/kosong
+    * Memastikan kesamaan response antara data dummy dan data yang asli
+    ERROR ->
+    * Pastikan register dan login gagal
+    * Memastikan data null/kosong
+    * Memastikan method login dan register terpanggil
+
+- MapsViewModel
+    SUCCESS ->
+    * Memastikan pemanggilan data success
+    * Memastikan getLocation terpanggil dengan benar
+    * Memastikan data tidak null/kosong
+    * Memastikan kesamaan response antara data dummy dan data yang asli
+    ERROR ->
+    * Memastikan data yang dikembalikan null/kosong
+    * Memastikan gagal ketika mengambil data
+    * Memastikan method getLocation dapat terpanggil
+
+
+SKENARIO TEST REPOSITORY
+- Method getStory
+    * Memastikan token tersimpan
+    * Memastikan data tidak null/kosong
+    * Memastikan jumlah data sesuai yang diharapkan
+    * Memastikan getStory dapat terpanggil dengan benar
+
+SKENARIO TEST DATA REPOSITORY
+- LoginRegister
+    SUCCESS ->
+    * Memastikan login dan register berhasil ketika dieksekusi
+    * Memastikan data tidak kosong/null
+    * Memastikan kesamaan response antara data dummy dan data yang asli
+    * Memastikan method login dan register terpanggil dengan benar
+    ERROR ->
+    * Memastikan login dan register Gagal ketika dieksekusi
+    * Memastikan data kosong/null ketika gagal
+    * Memastikan method login dan register dipanggil
+
+- UploadStories
+    SUCCESS ->
+    * Memastikan upload file berhasil
+    * Memastikan data tidak null/kosong
+    * Memastikan kesamaan response antara data dummy dan data yang asli
+    * Memastikan method dapat terpanggil
+    ERROR ->
+    * Memastikan gagal upload file
+    * Memastikan data response tidak sama dengan server asli
+
