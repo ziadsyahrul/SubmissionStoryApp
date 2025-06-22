@@ -62,7 +62,7 @@ fun reduceFileImage(file: File): File {
     bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
     return file
 }
-
+  
 fun getImageUri(image: Bitmap, context: Context): Uri {
     val bytes = ByteArrayOutputStream()
     image.compress(Bitmap.CompressFormat.JPEG, 100, bytes)

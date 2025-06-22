@@ -29,14 +29,18 @@ class CustomEditTextPassword : AppCompatEditText {
         init()
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        transformationMethod = PasswordTransformationMethod.getInstance()
+        // Password transformation sudah di-set di init(), tidak perlu di onDraw
     }
 
     private fun init() {
-        inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
+        // Set input type untuk password
+        inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         compoundDrawablePadding = 16
+
+        // Set transformation method untuk password
+        transformationMethod = PasswordTransformationMethod.getInstance()
 
         hint = resources.getString(R.string.password)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -49,8 +53,11 @@ class CustomEditTextPassword : AppCompatEditText {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 // Password validation
-                if (!s.isNullOrEmpty() && s.length < 8)
+                if (!s.isNullOrEmpty() && s.length < 8) {
                     error = context.getString(R.string.password_warning)
+                } else {
+                    error = null // Clear error jika password valid
+                }
             }
         })
     }

@@ -33,6 +33,7 @@ class StoryRemoteMediator(
                 val remoteKey = getRemoteKeyClosestToCurrent(state)
                 remoteKey?.nextKey?.minus(1) ?: PAGE_INDEX
             }
+
             LoadType.PREPEND -> {
                 val remoteKey = getRemoteKeyForFirst(state)
                 val prevKeys = remoteKey?.prevKey ?: return MediatorResult.Success(
@@ -40,6 +41,7 @@ class StoryRemoteMediator(
                 )
                 prevKeys
             }
+
             LoadType.APPEND -> {
                 val remoteKey = getRemoteKeyForLast(state)
                 val nextKey = remoteKey?.nextKey ?: return MediatorResult.Success(
@@ -67,16 +69,18 @@ class StoryRemoteMediator(
                     }
                     database.remoteKeyDAO().insertAll(key)
                     response.body()!!.listStory.forEach {
-                        val story = StoryEntity(
-                            it.id,
-                            it.name,
-                            it.description,
-                            it.createdAt,
-                            it.photoUrl,
-                            it.latitude,
-                            it.longitude
-                        )
-                        database.storyDAO().insertAllStory(story)
+                        val storyList = response.body()!!.listStory.map {
+                            StoryEntity(
+                                it.id,
+                                it.name,
+                                it.description,
+                                it.createdAt,
+                                it.photoUrl,
+                                it.longitude,
+                                it.latitude
+                            )
+                        }
+                        database.storyDAO().insertAllStory(storyList)
                     }
                 }
                 return MediatorResult.Success(endOfPaginationReached = endOfPagingReached)
